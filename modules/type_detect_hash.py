@@ -1,3 +1,5 @@
+import hashlib
+
 def get_hash_input(): # Funcion para el usuario
     hash_value = input("Enter the hash you want to identify: ").strip()
     if not hash_value:
@@ -11,7 +13,8 @@ def identify_hash(hash_value): # Funcion para identificar el hash
     if "$argon2" in hash_value:
         return "Argon2"
     if hash_length == 32:
-        if all(c in "abcdef0123456789" for c in hash_value.lower()):  # ¡¡Mirar como diferenciar MD5 de NTLM!!
+        # ¡¡Mirar como diferenciar MD5 de NTLM!!
+        if hash_value.islower() and all(c in "abcdef0123456789" for c in hash_value):
             return "MD5"
         else:
             return "NTLM"
@@ -25,6 +28,7 @@ def identify_hash(hash_value): # Funcion para identificar el hash
         return "CRC32"
     else:
         return "Unknown"
+
 
 def validate_hash_length(hash_value): # Verifica la longitud del hash que se puso en el input anterior
     valid_lengths = [32, 40, 64, 128, 8]
@@ -60,6 +64,4 @@ def detect_type_hashes():
 
         if not retry_prompt():
             break
-
-
 detect_type_hashes()
