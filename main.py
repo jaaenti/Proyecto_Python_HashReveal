@@ -25,7 +25,7 @@ def choose():
               
     """)
 
-        user_input = input("Choose the option 'number': ").strip()  
+        user_input = input("Choose the option: ").strip()  
         if user_input.isdigit():  
             option = int(user_input) 
             if option == 1:
