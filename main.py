@@ -9,7 +9,7 @@ print("""
 |
 |-----> Autor: JaaEnti, Pakhusso
 |-----> Version: 1.0.0
-|-----> https://github.com/jaaenti 
+|-----> https://github.com/jaaenti/Proyecto_Python_JoanTheRipper 
 |                                                                                                                                                                
 """)
 def choose():
