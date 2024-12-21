@@ -1,6 +1,5 @@
 from hashid import HashID
 
-# Lista de longitudes y tipos confiables
 TRUSTED_LENGTHS = {
     32: ["MD5 or NTLM"],
     40: ["SHA-1"],
