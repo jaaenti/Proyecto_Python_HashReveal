@@ -1,3 +1,4 @@
+from modules.type_detect_hash import detect_hash
 print("""
    __     ______     ______     __   __        ______   __  __     ______        ______     __     ______   ______   ______     ______    
   /\ \   /\  __ \   /\  __ \   /\ "-.\ \      /\__  _\ /\ \_\ \   /\  ___\      /\  == \   /\ \   /\  == \ /\  == \ /\  ___\   /\  == \   
@@ -29,10 +30,12 @@ def choose():
         if user_input.isdigit():  
             option = int(user_input) 
             if option == 1:
-                print("s")
+                print("Option 1 selected: Decrypt a hash.")
+                detect_hash()
                 return 
             elif option == 2:
-                print("e")
+                print("Option 2 selected: .")
+                detect_hash()
                 return 
             elif option == 3:
                 print("u")
