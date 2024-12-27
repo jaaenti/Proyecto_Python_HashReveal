@@ -1,4 +1,5 @@
 from modules.type_detect_hash import detect_hash
+from modules.type_generate_hash import generate_hash    
 print("""
    __     ______     ______     __   __        ______   __  __     ______        ______     __     ______   ______   ______     ______    
   /\ \   /\  __ \   /\  __ \   /\ "-.\ \      /\__  _\ /\ \_\ \   /\  ___\      /\  == \   /\ \   /\  == \ /\  == \ /\  ___\   /\  == \   
@@ -19,9 +20,10 @@ def choose():
               
     --------------------------
     | 1. Detect hash type    |
-    | 2. Decrypt a hash      |
-    | 3. Help                |
-    | 4. Exit                |
+    | 2. Encrypt hash        |
+    | 3. Decrypt hash        |
+    | 4. Help                |
+    | 5. Exit                |
     --------------------------
               
     """)
@@ -30,17 +32,20 @@ def choose():
         if user_input.isdigit():  
             option = int(user_input) 
             if option == 1:
-                print("Option 1 selected: Decrypt a hash.")
+                print("Option 1 selected: Detect hash type.")
                 detect_hash()
                 return 
             elif option == 2:
-                print("Option 2 selected: .")
-                detect_hash()
+                print("Option 2 selected: Encrypt Hash .")
+                generate_hash()
                 return 
             elif option == 3:
-                print("u")
+                print("Option 3 selected: Decrypt hash .")
                 return 
             elif option == 4:
+                print("Option 4 selected: Help .")
+                return  
+            elif option == 5:
                 print("Exiting the program. Goodbye!")
                 return  
             else:
