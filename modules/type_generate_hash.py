@@ -1,6 +1,7 @@
 import hashlib
 from argon2 import PasswordHasher
 from argon2.exceptions import HashingError
+from modules.type_navigation import navigation_menu
 
 Hashes = ["MD5", "SHA-1", "SHA-256", "SHA-512", "Argon2"]
 
@@ -67,11 +68,20 @@ def generate_hash():
             except ValueError:
                 print(f"Error: Hash type {hash_type} is not supported.")
         
-        # Preguntar si el usuario quiere continuar o salir
-        retry = input("\nDo you want to encrypt another password? (y/n): ").strip().lower()
-        if retry != 'y':
-            print("Exiting encryption module.")
+        action = navigation_menu()
+        if action == "detect":
+            from modules.type_detect_hash import detect_hash
+            print("Going to Detect Hash module...")
+            detect_hash() 
             break
-
-if __name__ == "__main__":
-    generate_hash()
+        elif action == "encrypt":
+            print("Restarting Hash Encryption...")
+            continue
+        elif action == "decrypt":
+            from modules.type_decrypt_hash import decrypt_hash
+            print("Going to Decrypt Hash module...")
+            decrypt_hash()  
+            break
+        elif action == "exit":
+            print("Exiting the program. Goodbye!")
+            break
